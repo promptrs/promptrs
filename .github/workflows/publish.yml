@@ -21,8 +21,6 @@ jobs:
         uses: cargo-bins/cargo-binstall@v1.10.15
       - name: Install wkg
         run: cargo binstall wkg
-      - name: Install cosign
-        uses: sigstore/cosign-installer@v3.7.0
       - name: Get version
         id: meta
         uses: docker/metadata-action@v5
