@@ -1,0 +1,4 @@
+world pruner {
+	use types.{message};
+	export prune: func(messages: list<message>, size: u64) -> list<message>;
+}

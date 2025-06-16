@@ -1,0 +1,5 @@
+world tools {
+	use types.{message, tool};
+	export call-tool: func(tool-name: string, args: list<tuple<string, string>>) -> string;
+	export get-tools: func() -> list<tool>;
+}

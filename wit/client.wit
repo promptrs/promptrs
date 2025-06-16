@@ -1,0 +1,45 @@
+package promptrs:core@0.1.0;
+
+interface types {
+	record completion-request {
+		api-key: option<string>,
+		base-url: string,
+		body: completion-params,
+	}
+
+	record completion-params {
+		model: string,
+		temperature: option<f64>,
+		top-p: option<f64>,
+		messages: list<message>,
+		%stream: bool,
+	}
+
+	variant message {
+		system(string),
+		user(string),
+		assistant(string),
+		tool-call(tuple<string, string>),
+		status(tuple<string, string>),
+	}
+
+	record tool {
+		name: string,
+		arguments: list<argument>,
+	}
+
+	record argument {
+		description: string,
+		properties: list<tuple<string, property>>,
+	}
+
+	record property {
+		%type: string,
+		description: string,
+	}
+}
+
+world client {
+	use types.{completion-request};
+	export completion: func(payload: completion-request) -> result<string, string>;
+}
