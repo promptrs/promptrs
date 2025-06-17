@@ -25,10 +25,10 @@ interface types {
 
 	record tool {
 		name: string,
-		arguments: list<argument>,
+		arguments: arguments,
 	}
 
-	record argument {
+	record arguments {
 		description: string,
 		properties: list<tuple<string, property>>,
 	}
