@@ -1,0 +1,3 @@
+interface agent {
+	run: func(input: string, config: string) -> string;
+}
